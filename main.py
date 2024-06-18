@@ -10,8 +10,8 @@ pygame.mixer.init()
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 tela = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) #tamanho da janela
-pygame.display.set_caption("Jogo do Matuê") #legenda do jogo
-BG = pygame.image.load("menu principal.png") #background
+pygame.display.set_caption("Matuê Dress Up") #legenda do jogo
+BG = pygame.image.load("Mídias/menu principal.png") #background
 
 #flags
 game_paused = False #se o jogo tá pausado
@@ -31,7 +31,7 @@ indice_tenis = 0
 
 indice_blusa, indice_calca, indice_tenis = saveload.carregar_progresso() #carrega quais sprites foram usados ao fechamento do jogo
 
-musica_fundo = "Conexões de Máfia.mp3" #arquivo da nossa música de fundo
+musica_fundo = "Mídias/Conexões de Máfia.mp3" #arquivo da nossa música de fundo
 pygame.mixer.music.load(musica_fundo) #carrega a música, para ser executada
 
 #loop do jogo
@@ -41,7 +41,7 @@ while run:
   
   #menu principal:
   if menu_state == "principal": #se o menu está no valor 'principal':
-    BG = pygame.image.load("menu principal.png") #o background assume a imagem do menu principal
+    BG = pygame.image.load("Mídias/menu principal.png") #o background assume a imagem do menu principal
     
     if button.play_button.draw(tela): #se o botão 'play' é clicado, o menu assume o valor "vestindo", que é o jogo em si
       menu_state = "vestindo"
@@ -49,7 +49,7 @@ while run:
   
   #jogando:
   if menu_state == "vestindo": #se o menu está no valor "vestindo": 
-    BG = pygame.image.load("armario.png") #o background assume a imagem do 'armário'
+    BG = pygame.image.load("Mídias/armario.png") #o background assume a imagem do 'armário'
     imagens.tue.draw(tela) #desenha o personagem principal na tela
     imagens.matue.rect.x = 380
     imagens.matue.rect.y = 100
@@ -78,7 +78,7 @@ while run:
 
 #pronto, escolhi minha roupa:
   if menu_state == "pronto":
-    BG = pygame.image.load("foto com o matue.png")
+    BG = pygame.image.load("Mídias/foto com o matue.png")
     imagens.matue.rect.x =310 #nova posição do personagem, diferente de quando estamos no menu "vestindo"
     imagens.matue.rect.y =90
     imagens.tue.draw(tela)
